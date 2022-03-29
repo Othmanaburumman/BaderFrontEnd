@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-charity',
-  templateUrl: './charity.component.html',
-  styleUrls: ['./charity.component.css',
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css',
   '../../../../assets/assets/css/bootstrap.min.css',
 	'../../../../assets/assets/css/slicknav.css',
     '../../../../assets/assets/css/flaticon.css',
@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
 	'../../../../assets/assets/css/nice-select.css',
 	'../../../../assets/assets/css/style.css',]
 })
-export class CharityComponent implements OnInit {
+export class FooterComponent implements OnInit {
 
   constructor() { }
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-charity',
-  templateUrl: './charity.component.html',
-  styleUrls: ['./charity.component.css',
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css',
   '../../../../assets/assets/css/bootstrap.min.css',
 	'../../../../assets/assets/css/slicknav.css',
     '../../../../assets/assets/css/flaticon.css',
@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
 	'../../../../assets/assets/css/nice-select.css',
 	'../../../../assets/assets/css/style.css',]
 })
-export class CharityComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   constructor() { }
 

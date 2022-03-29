@@ -12,6 +12,9 @@ import { CharityComponent } from './charity/charity.component';
 import { CharityProfileComponent } from './charity-profile/charity-profile.component';
 import { DonationsComponent } from './donations/donations.component';
 import { SurveyComponent } from './survey/survey.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ContactusComponent } from './contactus/contactus.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -25,11 +28,14 @@ import { SurveyComponent } from './survey/survey.component';
     CharityComponent,
     CharityProfileComponent,
     DonationsComponent,
-    SurveyComponent
+    SurveyComponent,
+    ContactusComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
   ]
 })
 export class UserModule { }
