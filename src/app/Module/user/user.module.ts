@@ -15,6 +15,8 @@ import { SurveyComponent } from './survey/survey.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { VerifyEmailComponent } from './Dialogs/verify-email/verify-email.component';
+import { FinishComponent } from './Dialogs/finish/finish.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     DonationsComponent,
     SurveyComponent,
     ContactusComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    VerifyEmailComponent,
+    FinishComponent
   ],
   imports: [
     CommonModule,

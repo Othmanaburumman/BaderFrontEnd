@@ -4,10 +4,14 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { DashBordNavComponent } from './Components/dash-bord-nav/dash-bord-nav.component';
+import { DashBordSideBardComponent } from './Components/dash-bord-side-bard/dash-bord-side-bard.component';
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DashBordNavComponent,
+    DashBordSideBardComponent
   ],
   imports: [
     CommonModule,
@@ -17,6 +21,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   exports:[
     NavbarComponent,
     FooterComponent,
+    DashBordNavComponent,
+    DashBordSideBardComponent,
+
     TooltipModule,
     CarouselModule
   ]

@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CampaignsComponent } from './campaigns/campaigns.component';
 import { CharityProfileComponent } from './charity-profile/charity-profile.component';
 import { CharityComponent } from './charity/charity.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -25,6 +26,9 @@ const routes: Routes = [{
   },{
     path:'contact',
     component:ContactusComponent
+  },{
+    path:'campaigns',
+    component:CampaignsComponent
   }
 
 ];

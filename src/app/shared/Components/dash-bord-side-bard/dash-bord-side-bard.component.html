@@ -1,0 +1,49 @@
+<head>
+  <meta charset="UTF-8">
+  <title color="primary"> dashboard </title>
+  <!-- Boxicons CDN Link -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light nav" id="nav">
+    <a class="navbar-brand heading" href="#">Default</a>
+  </nav>
+  <div class="sidebar">
+      <div class="logo-details" (click)="btnclicked()">
+          <i class='bx bxl-c-plus-plus icon' style="color:#8a1525"></i>
+          <div class="logo_name">LMS</div>
+          <i class='bx bx-menu' id="btn"></i>
+      </div>
+      <ul class="nav-list">
+          <li>
+              <a routerLink="/trainer">
+                  <i class='bx bx-grid-alt'></i>
+                  <span class="links_name">Section Dashboard</span>
+              </a>
+              <span class="tooltip">Section Dashboard</span>
+          </li>
+          <li>
+              <a routerLink="/trainer/students" routerLinkActive="active">
+                  <i class='bx bx-user'></i>
+                  <span class="links_name">User</span>
+              </a>
+              <span class="tooltip">User</span>
+          </li>
+          <li class="profile" (click)="MoveOut()">
+              <div class="profile-details">
+                  <img src="../../../assets/image/profile.png" alt="profileImg">
+                  <div class="name_job" style="color:white">
+                      Khaled Abulawi (placeholder)
+                  </div>
+              </div>
+              <i class='bx bx-log-out' id="log_out"></i>
+          </li>
+      </ul>
+  </div>
+  <section class="container-full" id="section">
+    <h3>Hello</h3>
+  </section>
+
+</body>
+

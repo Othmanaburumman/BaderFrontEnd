@@ -7,7 +7,7 @@ import { CharityInformationsComponent } from './charity-informations/charity-inf
 import { SubscriberComponent } from './subscriber/subscriber.component';
 import { StatitcsComponent } from './statitcs/statitcs.component';
 import { UserMassagesComponent } from './user-massages/user-massages.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { UserMassagesComponent } from './user-massages/user-massages.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

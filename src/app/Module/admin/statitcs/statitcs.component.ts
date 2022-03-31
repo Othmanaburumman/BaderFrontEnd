@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-statitcs',
   templateUrl: './statitcs.component.html',
@@ -10,6 +9,9 @@ export class StatitcsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
+
 
 }
