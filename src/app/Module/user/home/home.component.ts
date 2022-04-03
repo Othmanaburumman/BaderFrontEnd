@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserServiceService } from 'src/app/Services/user-service.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,9 +19,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: UserServiceService) { }
 
   ngOnInit(): void {
+    this.FetchDonations();
+    this.FetchEvents();
+    this.FetchInfo();
+  }
+
+  FetchEvents(){
+    this.service.FetchEventsFromApi()
+  }
+  FetchDonations(){
+    this.service.FetchDonationsFromApi()
+  }
+  FetchInfo(){
+    this.service.FetchInfoFromApi();
   }
 
 }
