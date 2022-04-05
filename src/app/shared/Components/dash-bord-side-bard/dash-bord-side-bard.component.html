@@ -1,13 +1,6 @@
-<head>
-  <meta charset="UTF-8">
-  <title color="primary"> dashboard </title>
-  <!-- Boxicons CDN Link -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
 <body>
   <nav class="navbar navbar-light bg-light nav" id="nav">
-    <a class="navbar-brand heading" href="#">Default</a>
+    <a class="navbar-brand heading" href="#">Bader Charity Dashboard</a>
   </nav>
   <div class="sidebar">
       <div class="logo-details" (click)="btnclicked()">
@@ -22,26 +15,43 @@
       </div>
       <ul class="nav-list">
           <li>
-              <a routerLink="/trainer">
-                  <i class='bx bx-grid-alt'></i>
-                  <span class="links_name">Section Dashboard</span>
+              <a routerLink="">
+                <i class='bx bx-info-square'></i>
+                  <span class="links_name">Profile</span>
               </a>
-              <span class="tooltip">Section Dashboard</span>
+              <span class="tooltip">Profile</span>
           </li>
           <li>
               <a routerLink="/trainer/students" routerLinkActive="active">
-                  <i class='bx bx-user'></i>
-                  <span class="links_name">User</span>
+                  <i class='bx bx-user-circle' ></i>
+                  <span class="links_name">Campaingus</span>
               </a>
-              <span class="tooltip">User</span>
+              <span class="tooltip">Campaingus</span>
           </li>
+          <li>
+            <a routerLink="/trainer/students" routerLinkActive="active">
+              <i class='bx bx-home-alt-2' ></i>
+                <span class="links_name">Events</span>
+            </a>
+            <span class="tooltip">Events</span>
+        </li>
+
+        <li>
+          <a routerLink="/trainer/students" routerLinkActive="active">
+
+            <i class='bx bx-signal-4'></i>
+              <span class="links_name">Survey</span>
+          </a>
+          <span class="tooltip">Survey</span>
+      </li>
+
           <li class="profile" (click)="MoveOut()">
               <div class="profile-details">
                   <div class="name_job" style="color:white">
                       Logout
                   </div>
               </div>
-              <i class='bx bx-log-out' id="log_out"></i>
+              <i class='bx bxs-log-out'></i>
           </li>
       </ul>
   </div>

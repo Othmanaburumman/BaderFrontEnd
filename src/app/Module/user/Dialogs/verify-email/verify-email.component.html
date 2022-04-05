@@ -1,1 +1,31 @@
-<p>verify-email works!</p>
+
+
+  <div class="container">
+    <div class="row">
+        <div class="offset-2 col-8 offset-2 formwarp">
+            <form [formGroup]="loginform" (submit)="Login()">
+              <img class="offset-3 col-6 offset-3" src="https://img.freepik.com/free-vector/enter-otp-concept-illustration_114360-7897.jpg?size=338&ext=jpg&ga=GA1.2.379966152.1629717242" alt="">
+               <mat-form-field appearance="outline" class="col-12">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="***************@gmail.com" formControlName="Email">
+
+
+                </mat-form-field>
+
+              <br>
+
+                 <mat-form-field appearance="outline" class="col-12">
+                  <mat-label>Enter your password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+
+                </mat-form-field>
+                <br>
+                <div class="offset-3 col-6 offset-3">
+
+                  <button  class="col-12 loginButton" mat-raised-button  type="submit" [disabled]="loginform.invalid">Login</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

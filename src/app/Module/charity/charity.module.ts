@@ -7,7 +7,7 @@ import { CrampugesComponent } from './crampuges/crampuges.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SurveyComponent } from './survey/survey.component';
 import { SurveyInfoComponent } from './survey-info/survey-info.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { SurveyInfoComponent } from './survey-info/survey-info.component';
   ],
   imports: [
     CommonModule,
-    CharityRoutingModule
+    CharityRoutingModule,
+    SharedModule
   ]
 })
 export class CharityModule { }

@@ -5,17 +5,21 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatIconModule} from '@angular/material/icon';
-import { DashBordNavComponent } from './Components/dash-bord-nav/dash-bord-nav.component';
 import { DashBordSideBardComponent } from './Components/dash-bord-side-bard/dash-bord-side-bard.component';
 import { HttpClientModule } from '@angular/common/http';
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import { NgChartsModule } from 'ng2-charts';
+import 'boxicons';
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-    DashBordNavComponent,
     DashBordSideBardComponent
   ],
   imports: [
@@ -25,19 +29,29 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    NgChartsModule
   ],
   exports:[
     NavbarComponent,
     FooterComponent,
-    DashBordNavComponent,
     DashBordSideBardComponent,
     MatIconModule,
     TooltipModule,
     CarouselModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule
+    ToastrModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    NgChartsModule
+
   ]
 })
 export class SharedModule { }
