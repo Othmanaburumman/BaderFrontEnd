@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { SharedModule } from './shared/shared.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +16,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    SharedModule
+    SharedModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

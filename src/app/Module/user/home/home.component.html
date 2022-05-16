@@ -10,13 +10,15 @@
                       <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
                           <div class="hero__caption">
                               <h1 data-animation="fadeInUp" data-delay=".6s">Our Helping to<br> the world.</h1>
-                              <P data-animation="fadeInUp" data-delay=".8s" >Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut bore et dolore magnt, sed do eiusmod.</P>
+                              <P data-animation="fadeInUp" data-delay=".8s" >Provide Humanity Services For Our Culture to make pepole live better</P>
                               <!-- Hero-btn -->
                               <div class="hero__btn">
-                                  <a href="industries.html" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
-                                  <a href="industries.html" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
+                                  <a (click)="DonateForWebSite()" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s"
+                                  >Donate For Us
+                                </a>
+                                  <a  class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
                                       <i class="flaticon-null"></i>
-                                      <p>+12 1325 41</p>
+                                      <p> Call Us Now: +962777215010856</p>
                                   </a>
                               </div>
                           </div>
@@ -146,7 +148,13 @@
                               <p>Raised:<span>0</span></p>
                               <p>Goal:<span>{{item.targetAmount}}$</span></p>
                           </div>
+                          <div class="row">
+                            <span class="col-1"></span>
+                            <button class="col-4 btn-save">Donate Now</button>
+                            <button class="col-4 btn-save">View Details</button>
+                        </div>
                       </div>
+                     
                   </div>
               </div>
           </div>
@@ -180,6 +188,9 @@
                                   <li><i class="far fa-clock"></i>8:30 - 9:30am</li>
                                   <li><i class="fas fa-sort-amount-down"></i>18.01.2021</li>
                                   <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                                  <li>
+                                    <button class="offset-2 col-10 btn-save">Join Now</button>
+                                  </li>
                               </ul>
                           </div>
                       </div>
@@ -218,3 +229,83 @@
   </div>
 
 <app-footer></app-footer>
+<!--Modal-->
+<!--Large modal--> 
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Donate</h4>
+        
+      </div>
+      <div class="modal-body">
+        <div class="input-group-icon mt-10">
+            <div class="icon"><i class="fa  fa-credit-card" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="xxxx-xxxx-xxxx-xxxx" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Card Number'" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+            
+            <div class="icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="Cvv2" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '016'" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+            <div class="icon"><i class="fa fa-clock" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="Expire Date" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Expire Date'" required class="single-input">
+        </div>
+        
+        <div class="input-group-icon mt-10">
+            <div class="icon"><i class="fa fa-dollar" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="Amount" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Amount'" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+            <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="Email" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Email'" required class="single-input">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn-save">Save</button>
+        <button class="btn-sm btn-danger">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/.Modal-->
+
+<!--Login Model Start -->
+<div bsModal #subscribeModel="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Login Model</h4>
+        
+      </div>
+      <div class="modal-body">
+        
+        <div class="input-group-icon mt-10">
+            <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="Email" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Email'" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+            <div class="icon"><i class="fa fa-dollar" aria-hidden="true"></i></div>
+            <input type="text" name="address" placeholder="Email" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Verifiction Code'" required class="single-input">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-danger">Login</button>
+        <button class="btn btn-sm btn-danger">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Login Model End-->

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from 'src/app/Services/user-service.service';
+import {ViewChild} from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,10 +21,14 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
 	'../../../../assets/assets/css/nice-select.css',
 	'../../../../assets/assets/css/style.css',]
 })
+
 export class HomeComponent implements OnInit {
-
-  constructor(public service: UserServiceService) { }
-
+  @ViewChild('lgModal', { static: false }) childModal?: ModalDirective;
+  @ViewChild('subscribeModel', { static: false }) subscriberModel?: ModalDirective;
+  constructor(public service: UserServiceService,public tostar:ToastrService) { }
+ 
+ 
+  
   ngOnInit(): void {
     this.FetchDonations();
     this.FetchEvents();
@@ -35,6 +43,18 @@ export class HomeComponent implements OnInit {
   }
   FetchInfo(){
     this.service.FetchInfoFromApi();
+  }
+
+  DonateForWebSite(){
+    this.childModal?.show();
+  }
+  
+  showChildModal(): void {
+   
+  }
+ 
+  hideChildModal(): void {
+   this.childModal?.hide();
   }
 
 }

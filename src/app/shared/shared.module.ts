@@ -15,6 +15,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { NgChartsModule } from 'ng2-charts';
+//import { ModalModule } from "ngx-bootstrap";
+import { ModalModule } from 'ngx-bootstrap/modal';
+//import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import 'boxicons';
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import 'boxicons';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    NgChartsModule
+    NgChartsModule,
+    ModalModule.forRoot()
+   // ModalModule.forRoot()
+    
   ],
   exports:[
     NavbarComponent,
@@ -50,8 +56,8 @@ import 'boxicons';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    NgChartsModule
-
+    NgChartsModule,
+    ModalModule
   ]
 })
 export class SharedModule { }
