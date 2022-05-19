@@ -39,6 +39,7 @@ import 'boxicons';
     MatInputModule,
     NgChartsModule,
     ModalModule.forRoot()
+    
    // ModalModule.forRoot()
     
   ],

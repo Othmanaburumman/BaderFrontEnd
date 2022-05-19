@@ -7,7 +7,7 @@ import { SurveyInfoComponent } from './survey-info/survey-info.component';
 import { SurveyComponent } from './survey/survey.component';
 
 const routes: Routes = [{
-  path:'charityprofile',
+  path:'',
   component:ProfileComponent
  },{
    path:'event',
@@ -19,7 +19,7 @@ const routes: Routes = [{
    path:'surveys',
    component:SurveyComponent
  },{
-   path:'servey/:Id',
+   path:'surveysDetails/:Id',
    component:SurveyInfoComponent
  }
 ];

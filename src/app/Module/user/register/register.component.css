@@ -9,11 +9,11 @@ body {
   color: #384047;
 }
 .container{
-width: 40%;
+width: 60%;
 }
 
 form {
-  max-width: 300px;
+  max-width: 800px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;

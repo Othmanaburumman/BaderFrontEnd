@@ -23,5 +23,15 @@ export class AboutUsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  slides: {image: string; text?: string}[] =  [
+    {image: 'assets/images/nature/5.jpg'},
+    {image: 'assets/images/nature/4.jpg'},
+    {image: 'assets/images/nature/3.jpg'}
+  ];
+  showIndicator = true;
+ 
+  switchIndicator(): void {
+    this.showIndicator = !this.showIndicator;
+  }
 
 }

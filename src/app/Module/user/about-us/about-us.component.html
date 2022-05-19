@@ -89,10 +89,10 @@
                   <!-- about-img -->
                   <div class="about-img ">
                       <div class="about-font-img d-none d-lg-block">
-                          <img src="assets/img/gallery/about2.png" alt="">
+                          <img src="../assets/assets/img/gallery/about2.png" alt="">
                       </div>
                       <div class="about-back-img ">
-                          <img src="assets/img/gallery/about1.png" alt="">
+                          <img src="../assets/assets/img/gallery/about1.png" alt="">
                       </div>
                   </div>
               </div>
@@ -100,84 +100,46 @@
       </div>
   </section>
   <!-- About Law End-->
-  <!-- Want To work -->
-  <section class="wantToWork-area ">
-      <div class="container">
-          <div class="wants-wrapper w-padding2  section-bg" data-background="assets/img/gallery/section_bg01.png">
-              <div class="row align-items-center justify-content-between">
-                  <div class="col-xl-5 col-lg-9 col-md-8">
-                      <div class="wantToWork-caption wantToWork-caption2">
-                          <h2>Lets Chenge The World With Humanity</h2>
-                      </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-3 col-md-4">
-                      <a href="#" class="btn white-btn f-right sm-left">Become A Volunteer</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- Want To work End -->
+  <carousel [showIndicators]="showIndicator">
+    <slide *ngFor="let slide of slides; let index=index">
+      <!--<img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+   
+      <div class="carousel-caption">
+        <h4>Slide {{index}}</h4>
+        <p>{{slide.text}}</p>
+      </div>-->
+      <div class="testimonial-area testimonial-padding">
+        <div class="container">
+            <!-- Testimonial contents -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-10">
+                    <div class="h1-testimonial-active dot-style">
+                        <!-- Single Testimonial -->
+                        <div class="single-testimonial text-center">
+                            <div class="testimonial-caption ">
+                                <!-- founder -->
+                                <div class="testimonial-founder">
+                                    <div class="founder-img mb-40">
+                                        <img src="../assets/assets/img/gallery/testimonial.png" alt="">
+                                        <span>Margaret Lawson</span>
+                                        <p>Creative Director</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-top-cap">
+                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </slide>
+  </carousel>
+  
   <!--? Testimonial Start -->
-  <div class="testimonial-area testimonial-padding">
-      <div class="container">
-          <!-- Testimonial contents -->
-          <div class="row d-flex justify-content-center">
-              <div class="col-xl-8 col-lg-8 col-md-10">
-                  <div class="h1-testimonial-active dot-style">
-                      <!-- Single Testimonial -->
-                      <div class="single-testimonial text-center">
-                          <div class="testimonial-caption ">
-                              <!-- founder -->
-                              <div class="testimonial-founder">
-                                  <div class="founder-img mb-40">
-                                      <img src="assets/img/gallery/testimonial.png" alt="">
-                                      <span>Margaret Lawson</span>
-                                      <p>Creative Director</p>
-                                  </div>
-                              </div>
-                              <div class="testimonial-top-cap">
-                                  <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Single Testimonial -->
-                      <div class="single-testimonial text-center">
-                          <div class="testimonial-caption ">
-                              <!-- founder -->
-                              <div class="testimonial-founder">
-                                  <div class="founder-img mb-40">
-                                      <img src="assets/img/gallery/testimonial.png" alt="">
-                                      <span>Margaret Lawson</span>
-                                      <p>Creative Director</p>
-                                  </div>
-                              </div>
-                              <div class="testimonial-top-cap">
-                                  <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Single Testimonial -->
-                      <div class="single-testimonial text-center">
-                          <div class="testimonial-caption ">
-                              <!-- founder -->
-                              <div class="testimonial-founder">
-                                  <div class="founder-img mb-40">
-                                      <img src="assets/img/gallery/testimonial.png" alt="">
-                                      <span>Margaret Lawson</span>
-                                      <p>Creative Director</p>
-                                  </div>
-                              </div>
-                              <div class="testimonial-top-cap">
-                                  <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+ 
   <!-- Testimonial End -->
 
   <!--? Count Down Start -->

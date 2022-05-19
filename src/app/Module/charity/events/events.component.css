@@ -6,7 +6,7 @@
     font-family: "Poppins", sans-serif;
 }
 .topnav {
-    background-color: #af1a2ed2;
+    background-color: #09cc7f;
     overflow: hidden;
   }
 
@@ -59,7 +59,7 @@
 }
 
 .sidebar .logo-details .logo_name {
-    color: #af1a2d;
+    color: #09cc7f;
     font-size: 20px;
     font-weight: 600;
     opacity: 0;
@@ -162,7 +162,7 @@
     left: 0;
     transform: translateY(-50%);
     font-size: 22px;
-    background: #8a1525;
+    background: #09cc7f;
     color: #ffff;
 }
 
@@ -184,7 +184,7 @@
     align-items: center;
     text-decoration: none;
     transition: all 0.4s ease;
-    background: #8a1525;
+    background: #09cc7f;
 }
 
 .sidebar li a:hover {
@@ -7171,7 +7171,7 @@
   left: 6%;
 }
 .Menuicons{
-  color:#8a1525;
+  color:#09cc7f;
   font-size: 24px;
   text-align: center;
   margin: 5px;

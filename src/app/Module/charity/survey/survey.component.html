@@ -14,37 +14,36 @@
 
       </div>
       <ul class="nav-list">
-          <li>
-              <a routerLink="">
-                <i class='bx bx-info-square'></i>
-                  <span class="links_name">Profile</span>
-              </a>
-              <span class="tooltip">Profile</span>
-          </li>
-          <li>
-              <a routerLink="/trainer/students" routerLinkActive="active">
-                  <i class='bx bx-user-circle' ></i>
-                  <span class="links_name">Campaingus</span>
-              </a>
-              <span class="tooltip">Campaingus</span>
-          </li>
-          <li>
-            <a routerLink="/trainer/students" routerLinkActive="active">
-              <i class='bx bx-home-alt-2' ></i>
-                <span class="links_name">Events</span>
-            </a>
-            <span class="tooltip">Events</span>
-        </li>
-
         <li>
-          <a routerLink="/trainer/students" routerLinkActive="active">
-
-            <i class='bx bx-signal-4'></i>
-              <span class="links_name">Survey</span>
+          <a href="/charityAdmin">
+            <i class='bx bx-info-square'></i>
+              <span class="links_name">Profile</span>
           </a>
-          <span class="tooltip">Survey</span>
+          <span class="tooltip">Profile</span>
       </li>
+      <li>
+          <a href="/charityAdmin/campungies" >
+              <i class='bx bx-user-circle' ></i>
+              <span class="links_name">Campaingus</span>
+          </a>
+          <span class="tooltip">Campaingus</span>
+      </li>
+      <li>
+        <a href="/charityAdmin/event">
+          <i class='bx bx-home-alt-2' ></i>
+            <span class="links_name">Events</span>
+        </a>
+        <span class="tooltip">Events</span>
+    </li>
+    
+    <li>
+      <a href="/charityAdmin/surveys" >
 
+        <i class='bx bx-signal-4'></i>
+          <span class="links_name">Survey</span>
+      </a>
+      <span class="tooltip">Survey</span>
+  </li>
           <li class="profile" (click)="MoveOut()">
               <div class="profile-details">
                   <div class="name_job" style="color:white">
@@ -55,8 +54,25 @@
           </li>
       </ul>
   </div>
-  <section class="container-full" id="section">
-    <h3>Hello</h3>
+  <section  class="container-full" id="section">
+    <section id="gallery">
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-lg-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Sunset</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+         <a href="" class="btn btn-outline-success btn-lg">Read More</a>
+  
+        </div>
+       </div>
+      </div>
+  
+    </div>
+  </div>
+</section>
   </section>
 
 </body>

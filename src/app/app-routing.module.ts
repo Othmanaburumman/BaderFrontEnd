@@ -12,7 +12,7 @@ const routes: Routes = [
     path:'admin',
     loadChildren:()=>AdminModule
   },{
-    path:'charity',
+    path:'charityAdmin',
     loadChildren:()=>CharityModule
   }
 ];
