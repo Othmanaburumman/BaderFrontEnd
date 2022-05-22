@@ -19,13 +19,26 @@ import { ToastrService } from 'ngx-toastr';
 	'../../../../assets/assets/css/style.css',]
 })
 export class CharityComponent implements OnInit {
-
+  charityName:string="";
   constructor(public service: UserServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
+    this.GetAllCharity();
   }
   GetAllCharity(){
     this.service.GetCharites();
+  }
+
+  SearchCharityByName(){
+    if(this.charityName==""){
+      this.tostar.warning('Enter Valid Name')
+    }else{
+      this.service.SearchCharityByName(this.charityName);
+    }
+   
+  }
+  OpenCharityProfile(charitId:number){
+
   }
 
 }

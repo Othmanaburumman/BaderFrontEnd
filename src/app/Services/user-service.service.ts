@@ -123,6 +123,20 @@ export class UserServiceService {
   GetCharites(){
     this.http.get('http://localhost:56209/api/User/GetAllCharity').subscribe((res: any) => {
       if (res) {
+        this.charites=res;
+        this.toastr.success('Success');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
+  }
+  SearchCharityByName(text:string){
+    this.http.get('http://localhost:56209/api/User/GetCharityByName?name='+text+"").subscribe((res: any) => {
+      if (res) {
+        this.charites=res;
         this.toastr.success('Success');
       } else {
         this.toastr.error('Something Went Wrong')
