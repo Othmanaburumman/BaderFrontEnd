@@ -3,6 +3,7 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
 import {ViewChild} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { VMDonation } from '../../../Models/VMDonation';
 
 @Component({
   selector: 'app-home',
@@ -25,8 +26,12 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 export class HomeComponent implements OnInit {
   @ViewChild('lgModal', { static: false }) childModal?: ModalDirective;
   @ViewChild('subscribeModel', { static: false }) subscriberModel?: ModalDirective;
+
   constructor(public service: UserServiceService,public tostar:ToastrService) { }
- 
+  email: string = "";
+  verificationCode: string = "";
+  name: string = "";
+  DonationObject: VMDonation = new VMDonation();
  
   
   ngOnInit(): void {
@@ -49,12 +54,32 @@ export class HomeComponent implements OnInit {
     this.childModal?.show();
   }
   
-  showChildModal(): void {
-   
+  SubscribeTheSite() {
+    if (this.email == "" || this.verificationCode == "" || this.name=="") {
+      this.tostar.warning("Please Enter The Email And Verification Code")
+    } else {
+      const info = {
+        Name: this.name,
+        Email: this.email,
+        Code: this.verificationCode
+      };
+      this.service.SubscribeSite(info);
+      this.subscriberModel?.hide()
+    }
   }
  
   hideChildModal(): void {
    this.childModal?.hide();
   }
+
+  Donate() {
+    if (this.DonationObject.cardNumber == undefined && this.DonationObject.cvv2 == undefined && this.DonationObject.expireDate == undefined
+      && this.DonationObject.amount == undefined) {
+      this.tostar.warning('Please Insert All Required data')
+    } else {
+      this.service.Donatation(this.DonationObject);
+    }
+  }
+
 
 }

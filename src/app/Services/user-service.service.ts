@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { VMDonation } from '../Models/VMDonation';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,6 +42,31 @@ export class UserServiceService {
       this.toastr.success('Finish')
     },(error)=>{
       this.toastr.error('Cannot Fecth Data')
+    })
+  }
+  
+  SubscribeSite(info: any) {
+    this.http.post('http://localhost:56209/api/User/SubscribeTheSite',info).subscribe((res: any) => {
+      if (res) {
+        this.toastr.success('Now You are Subsriber');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+     
+    }, (error) => {
+      this.toastr.error('Cannot Fecth Data')
+    })
+  }
+  Donatation(donation: VMDonation) {
+    this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+      if (res) {
+        this.toastr.success('Thank You Very Mush');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
     })
   }
 }
