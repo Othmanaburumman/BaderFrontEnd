@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from 'src/app/Services/user-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-charity-profile',
@@ -19,9 +22,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharityProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: UserServiceService,public tostar:ToastrService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id=this.route.snapshot.paramMap.get('Id');
+    if(id!=null){
+      this.service.GetCharityById(parseInt(id));
+    }
   }
 
 }

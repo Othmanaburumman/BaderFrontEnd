@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserServiceService } from 'src/app/Services/user-service.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-charity',
   templateUrl: './charity.component.html',
@@ -19,9 +20,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharityComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: UserServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
+  }
+  GetAllCharity(){
+    this.service.GetCharites();
   }
 
 }

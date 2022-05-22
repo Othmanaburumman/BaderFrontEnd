@@ -1,9 +1,9 @@
 export class VMDonation{
-  name: string | undefined;
-  donationID: string | undefined;
+    name: string | undefined;
+    donationID: number | undefined;
     cardNumber:string|undefined;
-    cvv2:number|undefined;
+    cvv2:string|undefined;
     expireDate:Date|undefined;
-    amount:number|undefined;
-    email:number|undefined;
+    amount:number=0;
+    email:string|undefined;
 }

@@ -13,6 +13,8 @@ export class UserServiceService {
   events:any[]=[];
   donations:any=[];
   information:any={};
+  charites:any[]=[];
+  charity:any={};
 
   constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
     ,public router:Router) { }
@@ -40,6 +42,9 @@ export class UserServiceService {
       console.log(error)
     })
   }
+  GetSummation(id:number){
+    return this.http.get('http://localhost:56209/api/User/GetDonationSummaationForCampungies?CampaingeId='+id)
+  }
   FetchInfoFromApi(){
     this.http.get('http://localhost:56209/api/User/GetAllNumericInfo').subscribe((res:any)=>{
       this.information=res
@@ -61,7 +66,7 @@ export class UserServiceService {
       this.toastr.error('Cannot Fecth Data')
     })
   }
-  Donatation(donation: VMDonation) {
+  Donatation(donation: any) {
     this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
       if (res) {
         this.toastr.success('Thank You Very Mush');
@@ -99,7 +104,58 @@ export class UserServiceService {
       this.toastr.error('Cannot Complete Operation')
     })
   }
-  Register(charity:VMCharity){
-    
+  RegisterNewCharity(charity:VMCharity){
+    this.http.post('http://localhost:56209/api/Authoraztion/RegisterNewCharity', charity).subscribe((res: any) => {
+      if (res) {
+        this.charites=res;
+        this.toastr.success('Send Request Done Successfly Wait For Confirm Email');
+        
+        this.router.navigate(['/']);
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
+  }
+
+  GetCharites(){
+    this.http.get('http://localhost:56209/api/User/GetAllCharity').subscribe((res: any) => {
+      if (res) {
+        this.toastr.success('Success');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
+  }
+  GetCharityById(id:number){
+    this.http.get('http://localhost:56209/api/User/GetAllCharity').subscribe((res: any) => {
+      if (res) {
+        this.charity=res;
+        this.toastr.success('Success');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
+  }
+
+  JoinEvent(object:any){
+    this.http.post('http://localhost:56209/api/User/InsertUserAnswerForSurvey', object).subscribe((res: any) => {
+      if (res) {  
+        this.toastr.success('Send Request Done Successfly Wait For Confirm Email');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
   }
 }
