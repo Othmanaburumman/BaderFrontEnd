@@ -26,12 +26,12 @@ import { VMDonation } from '../../../Models/VMDonation';
 export class HomeComponent implements OnInit {
   @ViewChild('lgModal', { static: false }) childModal?: ModalDirective;
   @ViewChild('subscribeModel', { static: false }) subscriberModel?: ModalDirective;
-
-  constructor(public service: UserServiceService,public tostar:ToastrService) { }
   email: string = "";
   verificationCode: string = "";
   name: string = "";
   DonationObject: VMDonation = new VMDonation();
+  constructor(public service: UserServiceService,public tostar:ToastrService) { }
+
  
   
   ngOnInit(): void {

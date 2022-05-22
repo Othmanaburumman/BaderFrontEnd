@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import { NgChartsModule } from 'ng2-charts';
 //import { ModalModule } from "ngx-bootstrap";
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule } from '@angular/forms'; 
 //import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import 'boxicons';
 @NgModule({
@@ -38,7 +39,8 @@ import 'boxicons';
     ReactiveFormsModule,
     MatInputModule,
     NgChartsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FormsModule
     
    // ModalModule.forRoot()
     
@@ -58,7 +60,8 @@ import 'boxicons';
     ReactiveFormsModule,
     MatInputModule,
     NgChartsModule,
-    ModalModule
+    ModalModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { VMDonation } from '../Models/VMDonation';
+import { VMMassage } from '../Models/VMMassage';
+import { Router } from '@angular/router';
+import { VMCharity } from '../Models/VMCharity';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +14,8 @@ export class UserServiceService {
   donations:any=[];
   information:any={};
 
-  constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService) { }
+  constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
+    ,public router:Router) { }
 
   FetchEventsFromApi(){
     this.ngxSpinner.show()
@@ -68,5 +72,34 @@ export class UserServiceService {
     }, (error) => {
       this.toastr.error('Cannot Complete Operation')
     })
+  }
+  SendMassage(mass:VMMassage){
+    this.http.post('http://localhost:56209/api/User/InsertMassage', mass).subscribe((res: any) => {
+      if (res) {
+        this.toastr.success('Thank You Very Much');
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
+  }
+  Login(login:any){
+    this.http.post('http://localhost:56209/api/Authoraztion/LoginCredinital', login).subscribe((res: any) => {
+      if (res) {
+        this.toastr.success('Login Success');
+        localStorage.setItem("UserToken",res);
+        this.router.navigate(['/charityAdmin/']);
+      } else {
+        this.toastr.error('Something Went Wrong')
+      }
+
+    }, (error) => {
+      this.toastr.error('Cannot Complete Operation')
+    })
+  }
+  Register(charity:VMCharity){
+    
   }
 }

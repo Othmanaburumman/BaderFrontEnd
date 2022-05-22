@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { VMMassage } from 'src/app/Models/VMMassage';
+import { UserServiceService } from 'src/app/Services/user-service.service';
 
 @Component({
   selector: 'app-contactus',
@@ -18,10 +21,18 @@ import { Component, OnInit } from '@angular/core';
 	'../../../../assets/assets/css/style.css',]
 })
 export class ContactusComponent implements OnInit {
-
-  constructor() { }
+  UserMassage:VMMassage=new VMMassage();
+  constructor(public service: UserServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  SendMassage(){
+    if(this.UserMassage.senderMail==undefined || this.UserMassage.subject==undefined || this.UserMassage.text==undefined){
+      this.tostar.warning('Please Enter All Require Data')
+    }else{
+      this.service.SendMassage(this.UserMassage);
+    }
   }
 
 }
