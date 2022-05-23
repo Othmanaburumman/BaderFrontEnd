@@ -30,5 +30,6 @@ export class CharityProfileComponent implements OnInit {
       this.service.GetCharityById(parseInt(id));
     }
   }
+  
 
 }

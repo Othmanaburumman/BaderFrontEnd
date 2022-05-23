@@ -147,7 +147,7 @@ export class UserServiceService {
     })
   }
   GetCharityById(id:number){
-    this.http.get('http://localhost:56209/api/User/GetAllCharity').subscribe((res: any) => {
+    this.http.get('http://localhost:56209/api/User/GetCharityById?id='+id+"").subscribe((res: any) => {
       if (res) {
         this.charity=res;
         this.toastr.success('Success');

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from 'src/app/Services/user-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-charity',
   templateUrl: './charity.component.html',
@@ -20,7 +21,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CharityComponent implements OnInit {
   charityName:string="";
-  constructor(public service: UserServiceService,public tostar:ToastrService) { }
+  constructor(public service: UserServiceService,public tostar:ToastrService,public route:Router) { }
 
   ngOnInit(): void {
     this.GetAllCharity();
@@ -38,7 +39,7 @@ export class CharityComponent implements OnInit {
    
   }
   OpenCharityProfile(charitId:number){
-
+    this.route.navigate(['charity/profile/'+charitId])
   }
 
 }
