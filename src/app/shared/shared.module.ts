@@ -18,7 +18,7 @@ import { NgChartsModule } from 'ng2-charts';
 //import { ModalModule } from "ngx-bootstrap";
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms'; 
-//import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { JwtModule} from '@auth0/angular-jwt';
 import 'boxicons';
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import 'boxicons';
     MatInputModule,
     NgChartsModule,
     ModalModule.forRoot(),
-    FormsModule
+    FormsModule,
+    
     
    // ModalModule.forRoot()
     
@@ -61,7 +62,8 @@ import 'boxicons';
     MatInputModule,
     NgChartsModule,
     ModalModule,
-    FormsModule
+    FormsModule,
+    
   ]
 })
 export class SharedModule { }

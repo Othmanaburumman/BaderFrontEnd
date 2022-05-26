@@ -6,6 +6,7 @@ import { VMDonation } from '../Models/VMDonation';
 import { VMMassage } from '../Models/VMMassage';
 import { Router } from '@angular/router';
 import { VMCharity } from '../Models/VMCharity';
+import jwtDecode from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,7 @@ export class UserServiceService {
   information:any={};
   charites:any[]=[];
   charity:any={};
+  token:String|any="";
 
   constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
     ,public router:Router) { }
@@ -95,9 +97,16 @@ export class UserServiceService {
       if (res) {
         this.toastr.success('Login Success');
         localStorage.setItem("UserToken",res);
-        this.router.navigate(['/charityAdmin/']);
+        this.token=localStorage.getItem('UserToken')
+        let data:any|undefined = jwtDecode(this.token); 
+        if(data.RoleId==1){
+          this.router.navigate(['/admin/'])
+        }else{
+          this.router.navigate(['/charityAdmin/']);
+        }
+       
       } else {
-        this.toastr.error('Something Went Wrong')
+        this.toastr.error('Login Failed')
       }
 
     }, (error) => {
@@ -109,8 +118,7 @@ export class UserServiceService {
       if (res) {
         this.charites=res;
         this.toastr.success('Send Request Done Successfly Wait For Confirm Email');
-        
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       } else {
         this.toastr.error('Something Went Wrong')
       }

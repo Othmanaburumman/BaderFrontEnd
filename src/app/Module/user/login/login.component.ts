@@ -8,16 +8,16 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-   email:string|undefined;
-   password:string|undefined;
+   email:string="";
+   password:string="";
    constructor(public service: UserServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
   }
 
   LoginAsCharity(){
-    if(this.email==undefined && this.password==undefined){
-
+    if(this.email=="" && this.password==""){
+      this.tostar.warning('Please Enter Data')
     }else{
       const login={
         email:this.email,
