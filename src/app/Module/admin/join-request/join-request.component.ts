@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AdminServiceService } from 'src/app/Services/admin-service.service';
 
 @Component({
   selector: 'app-join-request',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoinRequestComponent implements OnInit {
 
-  constructor() {}
+  constructor(public service: AdminServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
     this.searchBtn = document.querySelector(".bx-search");

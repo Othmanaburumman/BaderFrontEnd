@@ -2,19 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { VMDonation } from '../Models/VMDonation';
-import { VMMassage } from '../Models/VMMassage';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminServiceService {
 
+
+  joinRequests:any[]=[];
+  subscriber:any=[]=[];
+  massages:any[]=[];
+  object:any={};
   constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
     ,public router:Router) { }
 
-    ResponseToRequest(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+    ResponseToRequest() {
+      this.http.post('http://localhost:56209/api/User/DonateToSite', null).subscribe((res: any) => {
         if (res) {
           this.toastr.success('Thank You Very Mush');
         } else {
@@ -26,11 +29,10 @@ export class AdminServiceService {
       })
     }
 
-
-    GetStatics(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+    GetAllRequests() {
+      this.http.post('http://localhost:56209/api/User/DonateToSite', null).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.joinRequests=res;
         } else {
           this.toastr.error('Something Went Wrong')
         }
@@ -40,10 +42,11 @@ export class AdminServiceService {
       })
     }
 
-    GetAllSubscriber(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+
+    GetStatics() {
+      this.http.post('http://localhost:56209/api/User/DonateToSite', null).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.object=res;
         } else {
           this.toastr.error('Something Went Wrong')
         }
@@ -53,10 +56,23 @@ export class AdminServiceService {
       })
     }
 
-    GetAllMassages(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+    GetAllSubscriber() {
+      this.http.get('http://localhost:56209/api/Admin/GetAllWebSiteSubscriberInformation').subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.subscriber=res;
+        } else {
+          this.toastr.error('Something Went Wrong')
+        }
+  
+      }, (error) => {
+        this.toastr.error('Cannot Complete Operation')
+      })
+    }
+
+    GetAllMassages() {
+      this.http.get('http://localhost:56209/api/Admin/GetAllUserMessages').subscribe((res: any) => {
+        if (res) {
+          this.massages=res;
         } else {
           this.toastr.error('Something Went Wrong')
         }

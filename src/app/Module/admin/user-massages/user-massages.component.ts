@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminServiceService } from 'src/app/Services/admin-service.service';
 
 @Component({
   selector: 'app-user-massages',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserMassagesComponent implements OnInit {
 
-  constructor() {}
-
+  constructor(public service: AdminServiceService,public tostar:ToastrService) { }
   ngOnInit(): void {
+
+    this.service.GetAllMassages();
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");

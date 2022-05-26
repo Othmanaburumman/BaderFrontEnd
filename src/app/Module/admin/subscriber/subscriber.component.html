@@ -38,13 +38,12 @@
     </li>
 
     <li>
-      <a href="/admin/charities">
+      <a href="/admin/subcriber">
         <i class='bx bx-home-alt-2' ></i>
-          <span class="links_name">Charity Info</span>
+          <span class="links_name">Subscriber</span>
       </a>
-      <span class="tooltip">Charity Info</span>
+      <span class="tooltip">Subscriber</span>
   </li>
-        
 
           <li class="profile">
               <div class="profile-details">
@@ -63,19 +62,19 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th scope="col">Day</th>
-                <th scope="col">Article Name</th>
-                <th scope="col">Author</th>
-                <th scope="col">Shares</th>
-                <th scope="col">Actions</th>
+                <th scope="col">#</th>
+                <th scope="col">Subscriber Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Join Date</th>
+                
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bootstrap 4 CDN and Starter Template</td>
-                <td>Cristina</td>
-                <td>2.846</td>
+              <tr *ngFor="let s of this.service.massages;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{s.name}}</td>
+                <td>{{s.email}}</td>
+                <td>{{s.joiningDate}}</td>
 
               </tr>
             </tbody>

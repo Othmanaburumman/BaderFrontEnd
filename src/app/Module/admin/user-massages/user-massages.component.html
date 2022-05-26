@@ -38,11 +38,11 @@
         </li>
 
         <li>
-          <a href="/admin/charities">
+          <a href="/admin/subcriber">
             <i class='bx bx-home-alt-2' ></i>
-              <span class="links_name">Charity Info</span>
+              <span class="links_name">Subscriber</span>
           </a>
-          <span class="tooltip">Charity Info</span>
+          <span class="tooltip">Subscriber</span>
       </li>
 
 
@@ -63,22 +63,24 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th scope="col">Day</th>
-                <th scope="col">Article Name</th>
-                <th scope="col">Author</th>
-                <th scope="col">Shares</th>
+                <th scope="col">#</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Text</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bootstrap 4 CDN and Starter Template</td>
-                <td>Cristina</td>
-                <td>2.846</td>
+              <tr *ngFor="let m of this.service.massages">
+                <th scope="row">{{m.id}}</th>
+                <td>{{m.senderMail}}</td>
+                <td>{{m.subject}}</td>
+                <td>{{m.text}}</td>
                 <td>
                   
-                  <button type="button" class="btn btn-primary">REplay</button>
+                  <button type="button" class="btn btn-primary">
+                    <a href="mailto:{{m.senderMail}}"></a>
+                    Replay</button>
                 
                 </td>
               </tr>
