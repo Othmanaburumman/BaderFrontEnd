@@ -18,8 +18,6 @@ export class UserMassagesComponent implements OnInit {
     this.sidebar = document.querySelector(".sidebar");
     this.navbar= document.querySelector("#nav");
     this.section= document.querySelector("#section");
-
-
   }
   sidebar:Element | null = null;
   closeBtn:Element | null = null;

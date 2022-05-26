@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class CharityServiceService {
 
+  events:any[]=[];
+  donation:any[]=[];
   constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
     ,public router:Router) { }
 
@@ -69,6 +71,30 @@ export class CharityServiceService {
       this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
         if (res) {
           this.toastr.success('Thank You Very Mush');
+        } else {
+          this.toastr.error('Something Went Wrong')
+        }
+  
+      }, (error) => {
+        this.toastr.error('Cannot Complete Operation')
+      })
+    }
+    GetEvents() {
+      this.http.get('http://localhost:56209/api/Charity/FetchEvents').subscribe((res: any) => {
+        if (res) {
+          this.events=res;
+        } else {
+          this.toastr.error('Something Went Wrong')
+        }
+  
+      }, (error) => {
+        this.toastr.error('Cannot Complete Operation')
+      })
+    }
+    GetDonation() {
+      this.http.get('http://localhost:56209/api/Charity/FetchCampagin').subscribe((res: any) => {
+        if (res) {
+          this.donation=res;
         } else {
           this.toastr.error('Something Went Wrong')
         }

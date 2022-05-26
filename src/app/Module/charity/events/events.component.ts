@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharityServiceService } from 'src/app/Services/charity-service.service';
 
 @Component({
   selector: 'app-events',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() {}
+  constructor(public service:CharityServiceService) {}
 
   ngOnInit(): void {
+    this.service.GetEvents();
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");
