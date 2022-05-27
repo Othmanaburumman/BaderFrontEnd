@@ -42,6 +42,11 @@ export class CharityServiceService {
       })
     }
 
+
+
+
+
+    
     InsertDonatation(donation: any) {
       this.http.post('http://localhost:56209/api/Charity/InsertDonationCampaign', donation).subscribe((res: any) => {
         if (res) {
