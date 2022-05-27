@@ -13,6 +13,8 @@ export class JoinRequestComponent implements OnInit {
   constructor(public service: AdminServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
+
+    this.service.GetAllRequests();
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");
@@ -26,6 +28,16 @@ export class JoinRequestComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
+
+Accept(id:number){
+this.service.ResponseToRequest(id,1);
+}
+
+Reject(id:number){
+  this.service.ResponseToRequest(id,17);
+}
+
+
  MoveOut(){
 
  }

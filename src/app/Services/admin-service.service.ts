@@ -16,12 +16,13 @@ export class AdminServiceService {
   constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
     ,public router:Router) { }
 
-    ResponseToRequest() {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', null).subscribe((res: any) => {
+    ResponseToRequest(id:number,response:number) {
+      this.http.get('http://localhost:56209/api/Authoraztion/ResponseToCharityAddingRequest?response='+response+
+      "&charityId="+id+"").subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.toastr.success('Done');
         } else {
-          this.toastr.error('Something Went Wrong')
+          this.toastr.error('Failed')
         }
   
       }, (error) => {
@@ -30,7 +31,7 @@ export class AdminServiceService {
     }
 
     GetAllRequests() {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', null).subscribe((res: any) => {
+      this.http.get('http://localhost:56209/api/Admin/GetCharitiesJoinRequests').subscribe((res: any) => {
         if (res) {
           this.joinRequests=res;
         } else {
@@ -44,7 +45,7 @@ export class AdminServiceService {
 
 
     GetStatics() {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', null).subscribe((res: any) => {
+      this.http.get('http://localhost:56209/api/Admin/GetAllWebSiteStatics').subscribe((res: any) => {
         if (res) {
           this.object=res;
         } else {

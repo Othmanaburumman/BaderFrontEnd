@@ -12,6 +12,7 @@ export class StatitcsComponent implements OnInit {
   constructor(public service: AdminServiceService,public tostar:ToastrService) { }
 
   ngOnInit(): void {
+    this.service.GetStatics();
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");

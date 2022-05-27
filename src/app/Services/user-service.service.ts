@@ -93,7 +93,7 @@ export class UserServiceService {
     })
   }
   Login(login:any){
-    this.http.post('http://localhost:56209/api/Authoraztion/LoginCredinital', login).subscribe((res: any) => {
+    this.http.post('http://localhost:56209/api/Authoraztion/LoginCredinital', login,{ responseType: 'text' }).subscribe((res: any) => {
       if (res) {
         this.toastr.success('Login Success');
         localStorage.setItem("UserToken",res);

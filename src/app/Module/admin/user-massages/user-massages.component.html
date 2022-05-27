@@ -71,16 +71,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let m of this.service.massages">
-                <th scope="row">{{m.id}}</th>
+              <tr *ngFor="let m of this.service.massages;let i=index">
+                <th scope="row">{{i+1}}</th>
                 <td>{{m.senderMail}}</td>
                 <td>{{m.subject}}</td>
                 <td>{{m.text}}</td>
                 <td>
                   
                   <button type="button" class="btn btn-primary">
-                    <a href="mailto:{{m.senderMail}}"></a>
-                    Replay</button>
+                    <a style="padding: 10px; color: white;" href="mailto:{{m.senderMail}}">Replay</a>
+                    </button>
                 
                 </td>
               </tr>
