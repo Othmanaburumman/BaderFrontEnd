@@ -13,6 +13,16 @@ export class ProfileComponent implements OnInit {
   constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router) {}
 
   token:String|any="";
+  type:string="";
+  descr:string="";
+  user:string="";
+  noUser:number=0;
+
+  city:string="";
+  street:string="";
+  build:string="";
+
+  date:Date=new Date();
   ngOnInit(): void {
     this.token=localStorage.getItem('UserToken')
     let data:any|undefined = jwtDecode(this.token); 
@@ -56,6 +66,57 @@ export class ProfileComponent implements OnInit {
     this.navbar.classList.replace("navManage","nav")
     this.closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
   }
+ }
+
+ SaveService(){
+  this.token=localStorage.getItem('UserToken')
+  let data:any|undefined = jwtDecode(this.token); 
+  if(this.type=="" || this.descr=="" || this.user=="" || this.noUser==0){
+    this.toastr.warning('Please Enter All Date')
+  }else{
+    const object={
+      "type":this.type,
+      "description":this.descr,
+      "targetUser":this.user,
+      "totalBeneficiaries":this.noUser,
+      "StartAt":this.date,
+      "charityId":data.ChartiyId
+    }
+    this. type="";
+    this.descr="";
+    this.user="";
+    this.noUser=0;
+    this.date=new Date();
+  
+    
+    this.service.InsertService(object);
+  }
+    
+ }
+
+
+ SaveAddress(){
+  this.token=localStorage.getItem('UserToken')
+  let data:any|undefined = jwtDecode(this.token); 
+  if(this.city=="" || this.street=="" || this.build==""){
+    this.toastr.warning('Please Enter All Date')
+  }else{
+    const object={
+      "city":this.city,
+      "street":this.street,
+      "buildingNumber":this.build,
+      "charityId":data.ChartiyId
+    }
+    this. city="";
+    this.street="";
+    this.build="";
+
+  
+    
+    this.service.InsertService(object);
+  }
+  
+ 
  }
 
 }

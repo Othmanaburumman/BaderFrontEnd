@@ -18,9 +18,9 @@ export class CharityServiceService {
 
 
     InsertService(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+      this.http.post('http://localhost:56209/api/Charity/InsertService', donation).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.toastr.success('Done');
         } else {
           this.toastr.error('Something Went Wrong')
         }
@@ -30,9 +30,9 @@ export class CharityServiceService {
       })
     }
     InsertAddress(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+      this.http.post('http://localhost:56209/api/Charity/InsertAddress', donation).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.toastr.success('Done');
         } else {
           this.toastr.error('Something Went Wrong')
         }
