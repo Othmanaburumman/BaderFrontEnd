@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminServiceService } from 'src/app/Services/admin-service.service';
 
@@ -9,7 +10,7 @@ import { AdminServiceService } from 'src/app/Services/admin-service.service';
 })
 export class UserMassagesComponent implements OnInit {
 
-  constructor(public service: AdminServiceService,public tostar:ToastrService) { }
+  constructor(public service: AdminServiceService,public tostar:ToastrService,public router:Router) { }
   ngOnInit(): void {
 
     this.service.GetAllMassages();
@@ -24,9 +25,11 @@ export class UserMassagesComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
-
- }
+  MoveOut(){
+    this.tostar.warning('Logged Out')
+   this.router.navigate(['/login'])
+  }
+ 
 
  btnclicked(){
    this.sidebar!.classList.toggle("open");

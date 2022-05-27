@@ -24,9 +24,6 @@ export class CharityInformationsComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
-
- }
 
  btnclicked(){
    this.sidebar!.classList.toggle("open");

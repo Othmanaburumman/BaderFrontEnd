@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CharityServiceService } from 'src/app/Services/charity-service.service';
-
+import jwtDecode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import {ViewChild} from '@angular/core';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -8,10 +12,26 @@ import { CharityServiceService } from 'src/app/Services/charity-service.service'
 })
 export class EventsComponent implements OnInit {
 
-  constructor(public service:CharityServiceService) {}
+  token:String|any="";
+  title:string="";
+  description:string="";
+  start:Date=new Date();
+  end:Date=new Date();
+  duration:number=0;
+  seats:number=0;
+  @ViewChild('addEventModel', { static: false }) addEventModel?: ModalDirective;
+  constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router
+    ,public route:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.service.GetEvents();
+    this.token=localStorage.getItem('UserToken')
+    let data:any|undefined = jwtDecode(this.token); 
+    if(data.RoleId==1){
+      this.toastr.warning('Unothrized')
+      this.router.navigate(['/login'])
+    }else{
+      this.service.GetEvents(data.ChartiyId)
+    }
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");
@@ -20,18 +40,24 @@ export class EventsComponent implements OnInit {
 
 
   }
+
   sidebar:Element | null = null;
   closeBtn:Element | null = null;
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
-
- }
-
+  MoveOut(){
+    this.toastr.warning('Logged Out')
+   this.router.navigate(['/login'])
+  }
  btnclicked(){
    this.sidebar!.classList.toggle("open");
    this.menuBtnChange();
+ }
+
+
+ GetAnswers(id:number){
+  this.router.navigate(['charityAdmin/surveysDetails/'+id])
  }
 
  // following are the code to change sidebar button(optional)
@@ -45,6 +71,33 @@ export class EventsComponent implements OnInit {
     this.navbar.classList.replace("navManage","nav")
     this.closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
   }
+ }
+
+
+ OpenDialog(){
+    this.addEventModel?.show();
+ }
+ HideDialog(){
+  this.addEventModel?.hide();
+ }
+
+ InsertNewEvent(){
+
+
+  if(this.title=="" || this.description == "" || this.duration ==0 || this.seats == 0){
+    this.toastr.warning('Please Enter The Required Data')
+  }else{
+    const obj={
+      "title":this.title,
+      "description":this.description,
+      "startAt":this.start,
+      "endAt":this.end,
+      "duration":this.duration,
+      "seats":this.seats
+    }
+    this.service.InsertEvents(obj);
+  }
+
  }
 
 }

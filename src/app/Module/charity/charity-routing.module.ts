@@ -16,9 +16,6 @@ const routes: Routes = [{
    path:'campungies',
    component:CrampugesComponent
  },{
-   path:'surveys',
-   component:SurveyComponent
- },{
    path:'surveysDetails/:Id',
    component:SurveyInfoComponent
  }

@@ -36,14 +36,7 @@
         <span class="tooltip">Events</span>
     </li>
     
-    <li>
-      <a href="/charityAdmin/surveys" >
 
-        <i class='bx bx-signal-4'></i>
-          <span class="links_name">Survey</span>
-      </a>
-      <span class="tooltip">Survey</span>
-  </li>
 
           <li class="profile" (click)="MoveOut()">
               <div class="profile-details">
@@ -58,7 +51,11 @@
   <section class="container-full" id="section">
 
 <section id="gallery">
-  <div class="col-7">Add New Event</div>
+  <div class="row">
+    <button type="button" class="btn btn-success col-8">
+      <a style="padding: 10px; color: white;" (click)="OpenDialog()">Add New Event</a>
+     </button>
+    </div>
   <div class="container-fluid">
     <div class="row">
     <div class="col-lg-4" *ngFor="let e of this.service.events">
@@ -67,7 +64,9 @@
       <div class="card-body">
         <h5 class="card-title">{{e.name}}</h5>
         <p class="card-text">{{e.seats}}</p>
-      
+        <button type="button" class="btn btn-success">
+          <a style="padding: 10px; color: white;" (click)="GetAnswers(e.initiativesId)">Get Answers</a>
+         </button>
 
       </div>
      </div>
@@ -79,5 +78,53 @@
 
   </section>
 
+  <div bsModal #addEventModel="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Login Model</h4>
+
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group-icon mt-10">
+          <div class="icon"></div>
+          <input type="text" name="title" placeholder="title" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'Name'" [(ngModel)]="title" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"></div>
+          <input type="text" name="description" placeholder="description" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'description'" [(ngModel)]="description" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"></div>
+          <input type="date" name="start" placeholder="start" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'stat'" [(ngModel)]="start" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"></div>
+          <input type="date" name="end" placeholder="end" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'end'" [(ngModel)]="end" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"></div>
+          <input type="number" name="duration" placeholder="duration" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'duration'" [(ngModel)]="duration" required class="single-input">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"></div>
+          <input type="number" name="seats" placeholder="seats" onfocus="this.placeholder = ''"
+                 onblur="this.placeholder = 'seats'" [(ngModel)]="seats" required class="single-input">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-danger" (click)="InsertNewEvent()">Subscribe</button>
+        <button class="btn btn-sm btn-danger" (click)="HideDialog()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 

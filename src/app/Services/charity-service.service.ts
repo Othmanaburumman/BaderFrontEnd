@@ -12,6 +12,7 @@ export class CharityServiceService {
 
   events:any[]=[];
   donation:any[]=[];
+  answers:any[]=[];
   constructor(public http:HttpClient,public ngxSpinner:NgxSpinnerService,public toastr:ToastrService
     ,public router:Router) { }
 
@@ -54,10 +55,10 @@ export class CharityServiceService {
       })
     }
 
-    InsertEvents(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+    InsertEvents(object: any) {
+      this.http.post('http://localhost:56209/api/Charity/InsertNewInitiative', object).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.toastr.success('Done');
         } else {
           this.toastr.error('Something Went Wrong')
         }
@@ -67,10 +68,10 @@ export class CharityServiceService {
       })
     }
 
-    GetUserAnswers(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+    GetUserAnswers(eventId: any) {
+      this.http.get('http://localhost:56209/api/Charity/GetUserSuerviesAnswer?eventId='+eventId).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+         this.answers=res;
         } else {
           this.toastr.error('Something Went Wrong')
         }
@@ -79,8 +80,8 @@ export class CharityServiceService {
         this.toastr.error('Cannot Complete Operation')
       })
     }
-    GetEvents() {
-      this.http.get('http://localhost:56209/api/Charity/FetchEvents').subscribe((res: any) => {
+    GetEvents(id:number) {
+      this.http.get('http://localhost:56209/api/Charity/FetchEvents?charityId='+id+"").subscribe((res: any) => {
         if (res) {
           this.events=res;
         } else {
@@ -91,8 +92,8 @@ export class CharityServiceService {
         this.toastr.error('Cannot Complete Operation')
       })
     }
-    GetDonation() {
-      this.http.get('http://localhost:56209/api/Charity/FetchCampagin').subscribe((res: any) => {
+    GetDonation(id:number){
+      this.http.get('http://localhost:56209/api/Charity/FetchCampagin?charityId='+id+"").subscribe((res: any) => {
         if (res) {
           this.donation=res;
         } else {

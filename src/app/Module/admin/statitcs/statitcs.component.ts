@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AdminServiceService } from 'src/app/Services/admin-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-statitcs',
   templateUrl: './statitcs.component.html',
@@ -9,7 +10,7 @@ import { AdminServiceService } from 'src/app/Services/admin-service.service';
 export class StatitcsComponent implements OnInit {
 
 
-  constructor(public service: AdminServiceService,public tostar:ToastrService) { }
+  constructor(public service: AdminServiceService,public tostar:ToastrService,public router:Router) { }
 
   ngOnInit(): void {
     this.service.GetStatics();
@@ -26,9 +27,10 @@ export class StatitcsComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
-
- }
+  MoveOut(){
+    this.tostar.warning('Logged Out')
+   this.router.navigate(['/login'])
+  }
 
  btnclicked(){
    this.sidebar!.classList.toggle("open");

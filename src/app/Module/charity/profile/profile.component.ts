@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import jwtDecode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { CharityServiceService } from 'src/app/Services/charity-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router) {}
 
+  token:String|any="";
   ngOnInit(): void {
+    this.token=localStorage.getItem('UserToken')
+    let data:any|undefined = jwtDecode(this.token); 
+    if(data.RoleId==1){
+      this.toastr.warning('Unothrized')
+      this.router.navigate(['/login'])
+    }else{
+      this.service.GetDonation(data.ChartiyId)
+    }
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");
@@ -22,9 +35,10 @@ export class ProfileComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
-
- }
+  MoveOut(){
+    this.toastr.warning('Logged Out')
+   this.router.navigate(['/login'])
+  }
 
  btnclicked(){
    this.sidebar!.classList.toggle("open");

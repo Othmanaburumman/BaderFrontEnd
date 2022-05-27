@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
+import { CharityServiceService } from 'src/app/Services/charity-service.service';
+import jwtDecode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey-info',
@@ -9,11 +11,20 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class SurveyInfoComponent implements OnInit {
 
-  constructor() {}
+  token:String|any="";
+  
+  constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router
+    ,public route:ActivatedRoute) {}
 
  
 
   ngOnInit(): void {
+
+    const id=this.route.snapshot.paramMap.get('Id');
+    if(id!=null){
+      this.service.GetUserAnswers(parseInt(id));
+    }
+
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");
@@ -27,9 +38,11 @@ export class SurveyInfoComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
+  MoveOut(){
+    this.toastr.warning('Logged Out')
+   this.router.navigate(['/login'])
+  }
 
- }
 
  btnclicked(){
    this.sidebar!.classList.toggle("open");

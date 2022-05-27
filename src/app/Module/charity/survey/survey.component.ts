@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CharityServiceService } from 'src/app/Services/charity-service.service';
+import jwtDecode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey',
@@ -7,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyComponent implements OnInit {
 
-  constructor() {}
+  constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router
+    ,public route:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.searchBtn = document.querySelector(".bx-search");
@@ -23,9 +28,11 @@ export class SurveyComponent implements OnInit {
   searchBtn:Element | null = null;
   navbar:Element|null=null;
   section:Element|null=null;
- MoveOut(){
+  MoveOut(){
+    this.toastr.warning('Logged Out')
+   this.router.navigate(['/login'])
+  }
 
- }
 
  btnclicked(){
    this.sidebar!.classList.toggle("open");

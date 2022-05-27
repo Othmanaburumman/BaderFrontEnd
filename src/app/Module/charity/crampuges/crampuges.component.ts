@@ -1,15 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CharityServiceService } from 'src/app/Services/charity-service.service';
+import jwtDecode from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import {ViewChild} from '@angular/core';
 @Component({
   selector: 'app-crampuges',
   templateUrl: './crampuges.component.html',
   styleUrls: ['./crampuges.component.css']
 })
 export class CrampugesComponent implements OnInit {
-
-  constructor() {}
+  token:String|any="";
+  @ViewChild('addDonationsModel', { static: false }) addDonationsModel?: ModalDirective;
+  constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router) {}
 
   ngOnInit(): void {
+    this.token=localStorage.getItem('UserToken')
+    let data:any|undefined = jwtDecode(this.token); 
+    if(data.RoleId==1){
+      this.toastr.warning('Unothrized')
+      this.router.navigate(['/login'])
+    }else{
+      this.service.GetDonation(data.ChartiyId)
+    }
+    
     this.searchBtn = document.querySelector(".bx-search");
     this.closeBtn= document.querySelector("#btn");
     this.sidebar = document.querySelector(".sidebar");
@@ -24,7 +39,8 @@ export class CrampugesComponent implements OnInit {
   navbar:Element|null=null;
   section:Element|null=null;
  MoveOut(){
-
+   this.toastr.warning('Logged Out')
+  this.router.navigate(['/login'])
  }
 
  btnclicked(){
@@ -45,4 +61,14 @@ export class CrampugesComponent implements OnInit {
   }
  }
 
+ OpenDialog(){
+  this.addDonationsModel?.show();
+}
+HideDialog(){
+this.addDonationsModel?.hide();
+}
+
+InsertNewDonations(){
+ 
+}
 }
