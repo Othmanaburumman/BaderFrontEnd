@@ -5,6 +5,17 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+.form-control{
+    margin: 12px;
+    width: 90%;
+}
+.btn{
+    margin: 10px;
+}
+.label{
+    margin: 5px;
+    width: 90%;
+}
 .topnav {
     background-color: #09cc7f;
     overflow: hidden;

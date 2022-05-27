@@ -49,7 +49,11 @@
       </ul>
   </div>
   <section class="container-full" id="section">
-
+    <div class="row">
+      <button type="button" class="btn btn-success col-8">
+        <a style="padding: 10px; color: white;" (click)="OpenDialog()">Add New Donations</a>
+       </button>
+      </div>
 <section id="gallery">
   <div class="container-fluid">
     <div class="row">
@@ -71,6 +75,45 @@
 </section>
 
   </section>
+  <div bsModal #addDonationsModel="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg"  style="margin-left: 290px; margin-top:90 px; position: absolute; top:2%; width: 100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Add Donation </h4>
 
+      </div>
+      <div class="modal-body">
+
+
+        <div class="input-group-icon mt-10">
+          <label  class="label" for="">Description</label>
+          <div class="icon"></div>
+          <input type="text" name="description" placeholder="description"  [(ngModel)]="description" required class="form-control">
+        </div>
+        <div class="input-group-icon mt-10">
+          <label  class="label" for="">Start End</label>
+          <div class="icon"></div>
+          <input type="date" name="start" placeholder="start"  [(ngModel)]="start" required class="form-control">
+        </div>
+        <div class="input-group-icon mt-10">
+          <label  class="label" for="">End Date</label>
+          <div class="icon"></div>
+          <input type="date" name="end" placeholder="end"  [(ngModel)]="end" required class="form-control">
+        </div>
+        <div class="input-group-icon mt-10">
+          <label  class="label" for="">Target Amount</label>
+          <div class="icon"></div>
+          <input type="number" name="targetAmount" placeholder="targetAmount" [(ngModel)]="targetAmount" required class="form-control">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-success" (click)="InsertNewDonations()">Save & Continue</button>
+        <button class="btn btn-sm btn-danger" (click)="HideDialog()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 

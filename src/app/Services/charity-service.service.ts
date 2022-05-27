@@ -43,9 +43,9 @@ export class CharityServiceService {
     }
 
     InsertDonatation(donation: any) {
-      this.http.post('http://localhost:56209/api/User/DonateToSite', donation).subscribe((res: any) => {
+      this.http.post('http://localhost:56209/api/Charity/InsertDonationCampaign', donation).subscribe((res: any) => {
         if (res) {
-          this.toastr.success('Thank You Very Mush');
+          this.toastr.success('Completed');
         } else {
           this.toastr.error('Something Went Wrong')
         }

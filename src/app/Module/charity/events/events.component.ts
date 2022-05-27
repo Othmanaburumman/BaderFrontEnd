@@ -87,6 +87,7 @@ export class EventsComponent implements OnInit {
   if(this.title=="" || this.description == "" || this.duration ==0 || this.seats == 0){
     this.toastr.warning('Please Enter The Required Data')
   }else{
+    this.addEventModel?.hide();
     const obj={
       "title":this.title,
       "description":this.description,

@@ -80,47 +80,47 @@
 
   <div bsModal #addEventModel="bs-modal" class="modal fade" tabindex="-1"
      role="dialog" aria-labelledby="dialog-sizes-name1">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg"  style="margin-left: 290px; margin-top:90 px; position: absolute; top:2%; width: 100%;">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Login Model</h4>
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Add Event Model</h4>
 
       </div>
       <div class="modal-body">
 
         <div class="input-group-icon mt-10">
+          <label class="label" for="">Name</label>
           <div class="icon"></div>
-          <input type="text" name="title" placeholder="title" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'Name'" [(ngModel)]="title" required class="single-input">
+          <input type="text" name="title" placeholder="title" [(ngModel)]="title" required class="form-control">
         </div>
         <div class="input-group-icon mt-10">
+          <label  class="label" for="">Description</label>
           <div class="icon"></div>
-          <input type="text" name="description" placeholder="description" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'description'" [(ngModel)]="description" required class="single-input">
+          <input type="text" name="description" placeholder="description"  [(ngModel)]="description" required class="form-control">
         </div>
         <div class="input-group-icon mt-10">
+          <label  class="label" for="">Start End</label>
           <div class="icon"></div>
-          <input type="date" name="start" placeholder="start" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'stat'" [(ngModel)]="start" required class="single-input">
+          <input type="date" name="start" placeholder="start"  [(ngModel)]="start" required class="form-control">
         </div>
         <div class="input-group-icon mt-10">
+          <label  class="label" for="">End Date</label>
           <div class="icon"></div>
-          <input type="date" name="end" placeholder="end" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'end'" [(ngModel)]="end" required class="single-input">
+          <input type="date" name="end" placeholder="end"  [(ngModel)]="end" required class="form-control">
         </div>
         <div class="input-group-icon mt-10">
+          <label  class="label" for="">Duration</label>
           <div class="icon"></div>
-          <input type="number" name="duration" placeholder="duration" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'duration'" [(ngModel)]="duration" required class="single-input">
+          <input type="number" name="duration" placeholder="duration" [(ngModel)]="duration" required class="form-control">
         </div>
         <div class="input-group-icon mt-10">
+          <label   class="label" for="">Seats</label>
           <div class="icon"></div>
-          <input type="number" name="seats" placeholder="seats" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'seats'" [(ngModel)]="seats" required class="single-input">
+          <input type="number" name="seats" placeholder="seats"[(ngModel)]="seats" required class="form-control">
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-sm btn-danger" (click)="InsertNewEvent()">Subscribe</button>
+        <button class="btn btn-sm btn-success" (click)="InsertNewEvent()">Save & Continue</button>
         <button class="btn btn-sm btn-danger" (click)="HideDialog()">Close</button>
       </div>
     </div>

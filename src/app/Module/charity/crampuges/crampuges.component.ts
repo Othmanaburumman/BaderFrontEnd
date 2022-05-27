@@ -12,6 +12,10 @@ import {ViewChild} from '@angular/core';
 })
 export class CrampugesComponent implements OnInit {
   token:String|any="";
+  description:string="";
+  start:Date=new Date();
+  end:Date=new Date();
+  targetAmount:number=0;
   @ViewChild('addDonationsModel', { static: false }) addDonationsModel?: ModalDirective;
   constructor(public service:CharityServiceService,public toastr:ToastrService,public router:Router) {}
 
@@ -69,6 +73,18 @@ this.addDonationsModel?.hide();
 }
 
 InsertNewDonations(){
- 
+  if(this.targetAmount==0 || this.description == ""){
+    this.toastr.warning('Please Enter The Required Data')
+  }else{
+    this.addDonationsModel?.hide();
+    const obj={
+     
+      "description":this.description,
+      "startAt":this.start,
+      "endAt":this.end,
+      "targetAmount":this.targetAmount
+    }
+    this.service.InsertDonatation(obj);
+  }
 }
 }
